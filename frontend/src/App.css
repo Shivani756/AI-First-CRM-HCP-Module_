@@ -1,0 +1,125 @@
+/* ── Shell ──────────────────────────────────────────────── */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f3f4f8;
+}
+
+/* ── Topbar ─────────────────────────────────────────────── */
+.topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  height: 56px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #2563eb;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand-icon { font-size: 22px; }
+
+.topbar-nav {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-link:hover { background: #f3f4f8; color: #111827; }
+.nav-link.active { background: #eff6ff; color: #2563eb; }
+
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+.user-name { font-size: 13px; color: #374151; }
+
+/* ── Page content ───────────────────────────────────────── */
+.page-content {
+  padding: 20px 24px 28px;
+  flex: 1;
+}
+
+.page-heading {
+  margin-bottom: 16px;
+}
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+.page-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* ── Two-column layout ──────────────────────────────────── */
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .chat-panel {
+    height: 520px;
+  }
+}
+
+.panel {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.chat-panel {
+  position: sticky;
+  top: 76px;
+  height: calc(100vh - 104px);
+  display: flex;
+  flex-direction: column;
+}

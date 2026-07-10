@@ -1,0 +1,352 @@
+/* ── Container ───────────────────────────────────────────── */
+.lf-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: calc(100vh - 140px);
+}
+
+.lf-section-header {
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.lf-form {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Rows / Groups ───────────────────────────────────────── */
+.lf-row {
+  display: flex;
+  gap: 16px;
+}
+.lf-row.two-col > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.lf-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.lf-group.full { width: 100%; }
+
+/* ── Labels ─────────────────────────────────────────────── */
+.lf-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+}
+.lf-ai-label {
+  color: #7c3aed;
+}
+
+/* ── Inputs ─────────────────────────────────────────────── */
+.lf-input,
+.lf-select,
+.lf-textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 13px;
+  color: #111827;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.lf-input:focus,
+.lf-select:focus,
+.lf-textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+.lf-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+.lf-textarea { resize: vertical; min-height: 80px; }
+
+/* ── Textarea with AI icon ───────────────────────────────── */
+.lf-textarea-wrap {
+  position: relative;
+}
+.lf-textarea-wrap .lf-textarea {
+  padding-right: 32px;
+}
+.lf-ai-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+  color: #7c3aed;
+  pointer-events: none;
+}
+
+/* ── Voice note button ───────────────────────────────────── */
+.lf-voice-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 6px 12px;
+  border: 1px dashed #d1d5db;
+  border-radius: 6px;
+  background: #fafafa;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+  transition: border-color 0.15s, color 0.15s;
+}
+.lf-voice-btn:hover { border-color: #9ca3af; color: #374151; }
+.lf-consent { color: #9ca3af; }
+
+/* ── Subsection headers ──────────────────────────────────── */
+.lf-subsection-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.lf-sample-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.lf-sample-input { width: 160px; flex: none; }
+
+/* ── Add / Search buttons ────────────────────────────────── */
+.lf-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+}
+.lf-add-btn:hover { background: #f9fafb; border-color: #9ca3af; }
+
+/* ── Material search dropdown ────────────────────────────── */
+.lf-mat-search {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 4px;
+}
+.lf-mat-search-row {
+  display: flex;
+  gap: 8px;
+}
+.lf-search-btn {
+  padding: 6px 14px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.lf-search-btn:hover { background: #1d4ed8; }
+
+.lf-mat-results {
+  list-style: none;
+  margin-top: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+.lf-mat-results li {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.lf-mat-results li:hover { background: #eff6ff; }
+.lf-mat-results li + li { border-top: 1px solid #f3f4f6; }
+.lf-mat-type {
+  font-size: 11px;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ── Tag list ────────────────────────────────────────────── */
+.lf-empty {
+  font-size: 12px;
+  color: #9ca3af;
+  font-style: italic;
+  padding: 4px 0;
+}
+.lf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin-top: 4px;
+}
+.lf-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.lf-tag button {
+  background: none;
+  border: none;
+  color: #93c5fd;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+}
+.lf-tag button:hover { color: #1d4ed8; }
+
+/* ── Sentiment ───────────────────────────────────────────── */
+.lf-sentiment-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.lf-sentiment-opt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 6px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  transition: all 0.15s;
+  color: #374151;
+}
+.lf-sentiment-opt input { display: none; }
+.lf-sentiment-opt.selected { font-weight: 600; }
+.lf-sentiment-opt.selected.lf-sentiment-positive,
+.lf-sentiment-opt[class*='positive'].selected { border-color: #16a34a; background: #f0fdf4; color: #15803d; }
+.lf-sentiment-opt[class*='neutral'].selected,
+.lf-sentiment-opt.selected:has(.lf-dot-neutral) { border-color: #ca8a04; background: #fefce8; color: #a16207; }
+.lf-sentiment-opt.selected:has(.lf-dot-negative) { border-color: #dc2626; background: #fef2f2; color: #b91c1c; }
+
+.lf-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.lf-dot-positive  { background: #16a34a; }
+.lf-dot-neutral   { background: #ca8a04; }
+.lf-dot-negative  { background: #dc2626; }
+
+/* ── AI Suggestions ──────────────────────────────────────── */
+.lf-suggestions {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.lf-suggestion-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  color: #374151;
+}
+.lf-arrow { color: #7c3aed; font-weight: 600; flex-shrink: 0; }
+.lf-suggestion-text { flex: 1; line-height: 1.4; }
+.lf-use-btn {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border: 1px solid #c4b5fd;
+  border-radius: 4px;
+  background: #fff;
+  color: #7c3aed;
+  font-size: 11px;
+  font-weight: 500;
+  transition: background 0.12s;
+}
+.lf-use-btn:hover { background: #ede9fe; }
+
+/* ── AI Summary ──────────────────────────────────────────── */
+.lf-ai-summary {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* ── Status banners ──────────────────────────────────────── */
+.lf-banner {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.lf-banner-error   { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; }
+.lf-banner-success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; }
+
+/* ── Form actions ────────────────────────────────────────── */
+.lf-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 4px;
+}
+.lf-btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.15s;
+}
+.lf-btn-primary {
+  background: #2563eb;
+  color: #fff;
+}
+.lf-btn-primary:hover:not(:disabled) { background: #1d4ed8; }
+.lf-btn-primary:disabled { background: #93c5fd; cursor: not-allowed; }
+.lf-btn-secondary {
+  background: #f9fafb;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+.lf-btn-secondary:hover { background: #f3f4f6; }
